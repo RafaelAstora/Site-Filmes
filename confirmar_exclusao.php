@@ -8,7 +8,7 @@
     <h1>Confirmar Exclusão</h1>
 
     <?php
-    // Verificar se o ID do filme foi passado na URL
+    // Verifica se o ID do filme foi passado na URL
     if (isset($_GET["id"])) {
         $id_filme = $_GET["id"];
         

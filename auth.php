@@ -18,7 +18,7 @@ $consulta_sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$sen
 $resultado = $conexao->query($consulta_sql);
 
 if ($resultado->num_rows == 1) {
-    // Usuário é válido (encontrado no banco de dados)
+    // Usuário é válido 
     $usuario = $resultado->fetch_assoc();
 
     if ($usuario['email'] === 'root@root.com') {

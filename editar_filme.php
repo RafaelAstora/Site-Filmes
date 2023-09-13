@@ -8,17 +8,17 @@
     <h1>Editar Filme</h1>
 
     <?php
-    // Conectar ao banco de dados (substitua as informações de conexão)
+    // Conecta ao banco de dados (substitua as informações de conexão)
     $conexao = new mysqli("localhost:3306", "root", "", "crud_filmes");
 
-    // Verificar a conexão
+    // Verifica a conexão
     if ($conexao->connect_error) {
         die("Erro na conexão: " . $conexao->connect_error);
     }
 
-    // Verificar se o formulário foi enviado
+    // Verifica se o formulário foi enviado
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Recuperar os dados do formulário
+        // Recupera os dados do formulário
         $id = $_POST["id"];
         $titulo = $_POST["titulo"];
         $genero = $_POST["genero"];
@@ -26,7 +26,7 @@
 
         $foto = $_POST["foto"];
 
-        // Atualizar o registro do filme no banco de dados
+        // Atualiza o registro do filme no banco de dados
         $atualizacao_sql = "UPDATE filmes SET titulo = '$titulo', genero = '$genero', ano_lancamento = $ano_lancamento, foto = '$foto' WHERE id = $id";
 
         if ($conexao->query($atualizacao_sql) === TRUE) {
@@ -36,7 +36,7 @@
         }
     }
 
-    // Recuperar o ID do filme da URL
+    // Recupera o ID do filme da URL
     $id_filme = $_GET["id"];
 
     // Consulta SQL para selecionar os dados do filme a ser editado
@@ -71,7 +71,7 @@
         echo "Filme não encontrado.";
     }
 
-    // Fechar a conexão
+    // Fecha a conexão
     $conexao->close();
     ?>
 </body>
