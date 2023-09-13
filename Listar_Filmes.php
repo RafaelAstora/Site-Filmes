@@ -10,10 +10,10 @@
     <?php
     session_start();
 
-    // Conectar ao banco de dados (substitua as informações de conexão)
+    // Conecta ao banco de dados (substitua as informações de conexão caso seja diferente do meu)
     $conexao = new mysqli("localhost", "root", "", "crud_filmes");
 
-    // Verificar a conexão
+    // Verifica a conexão
     if ($conexao->connect_error) {
         die("Erro na conexão: " . $conexao->connect_error);
     }
@@ -33,7 +33,7 @@
         echo "<table border='1'>";
         echo "<tr><th>Título</th><th>Gênero</th><th>Ano de Lançamento</th><th>Média de Notas</th><th>Foto</th></tr>";
         if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-            // Mostrar opções de adicionar, editar e excluir para o admin
+            // Mostra opções de adicionar, editar e excluir para o admin
             echo "<a href='adicionar_filme.php'><img src='https://cdn.discordapp.com/attachments/531215086640168970/1150742512701542440/753317.png' alt='Adicionar Filme' width='50px' height='50px'></a>";
 
         }
@@ -47,7 +47,7 @@
             echo "<td><a href='dar_nota.php?id=" . $linha["id"] . "'>Dar nota</a></td>";
 
             if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-                // Mostrar opções de adicionar, editar e excluir para o admin
+                // Mostra opções de adicionar, editar e excluir para o admin
 
                 echo "<td><a href='editar_filme.php?id=" . $linha["id"] . "'>Editar</a></td>";
                 echo "<td><a href='confirmar_exclusao.php?id=" . $linha["id"] . "'>Excluir</a></td>";
@@ -60,7 +60,7 @@
         echo "Nenhum filme encontrado.";
     }
 
-    // Fechar a conexão
+    // Fecha a conexão
     $conexao->close();
     ?>
 </body>
